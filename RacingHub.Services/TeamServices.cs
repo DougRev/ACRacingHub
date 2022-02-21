@@ -85,16 +85,16 @@ namespace RacingHub.Services
             }
 
         }
-        public bool DeleteTeam(int raceId)
+        public bool DeleteTeam(int teamId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Races
-                    .Single(e => e.RaceId == raceId && e.OwnerId == _userId);
+                    .Teams
+                    .Single(e => e.TeamId == teamId && e.OwnerId == _userId);
 
-                ctx.Races.Remove(entity);
+                ctx.Teams.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
