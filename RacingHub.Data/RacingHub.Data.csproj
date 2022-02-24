@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enrollment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202202211435524_InitialCreate.cs" />
     <Compile Include="Migrations\202202211435524_InitialCreate.designer.cs">
