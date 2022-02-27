@@ -43,7 +43,6 @@ namespace RacingHub.Services
                     {
                         TeamId = e.TeamId,
                         TeamName = e.TeamName,
-                        TeamDescription = e.TeamDescription,
  
                     });
                 return query.ToArray();

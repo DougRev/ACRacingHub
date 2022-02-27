@@ -62,6 +62,7 @@ namespace RacingHub.Services
                     new PostDetails
                     {
                         PostId = entity.PostId,
+                        PostName= entity.PostName,
                         PostBody = entity.PostBody,
                         CreatedUtc = entity.CreatedUtc,
 

@@ -44,7 +44,6 @@ namespace RacingHub.Services
                     {
                         RaceId = e.RaceId,
                         RaceName = e.RaceName,
-                        RaceDescription = e.RaceDescription,
                         DriverLimit = e.DriverLimit,
                     });
                 return query.ToArray();

@@ -9,6 +9,7 @@ namespace RacingHub.Data
 {
     public class Post
     {
+        [Key]
         public int PostId { get; set; }
         public Guid OwnerId { get; set; }
         [Required]
