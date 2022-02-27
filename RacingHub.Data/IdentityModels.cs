@@ -36,6 +36,7 @@ namespace RacingHub.Data
         //public DbSet<Post> Posts { get; set; }
         public DbSet<Race> Races { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

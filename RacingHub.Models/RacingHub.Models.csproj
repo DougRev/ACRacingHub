@@ -58,6 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Post\PostCreate.cs" />
+    <Compile Include="Post\PostDetails.cs" />
+    <Compile Include="Post\PostEdit.cs" />
+    <Compile Include="Post\PostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race\RaceCreate.cs" />
     <Compile Include="Race\RaceDetails.cs" />
