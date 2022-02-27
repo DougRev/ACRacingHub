@@ -17,6 +17,9 @@ namespace RacingHub.Models.Race
         public string RaceDescription { get; set;}
         [Display(Name = "Driver Limit")]
         public int DriverLimit { get; set; }
+        [Display(Name = "Date")]
+        public DateTime RaceDate { get; set; }
+     
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]
