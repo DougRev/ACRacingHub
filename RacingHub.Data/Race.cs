@@ -16,8 +16,7 @@ namespace RacingHub.Data
         [Required]
         public string RaceName { get; set;}
         public string RaceDescription { get; set;}
-        [Required]
-        public DateTime RaceDate { get; set; }
+        //public DateTime RaceDate { get; set; }
         [Required]
         public int DriverLimit { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
