@@ -26,6 +26,7 @@ namespace RacingHub.Services
                 PostName = model.PostName,
                 PostBody = model.PostBody,
                 CreatedUtc = DateTime.UtcNow,
+                RaceId = model.RaceId,
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -34,7 +35,7 @@ namespace RacingHub.Services
             }
         }
 
-            public IEnumerable<PostListItem> GetTeams()
+            public IEnumerable<PostListItem> GetPosts()
             {
                 using (var ctx = new ApplicationDbContext())
                 {
@@ -44,20 +45,21 @@ namespace RacingHub.Services
                             PostId = e.PostId,
                             PostName = e.PostName,
                             CreatedUtc = e.CreatedUtc,
+                            RaceName = e.Race.RaceName,
 
                         });
                     return query.ToArray();
                 }
             }
 
-            public PostDetails GetPostById(int teamId)
+            public PostDetails GetPostById(int postId)
             {
                 using (var ctx = new ApplicationDbContext())
                 {
                     var entity =
                         ctx
                         .Posts
-                        .Single(e => e.PostId == teamId);
+                        .Single(e => e.PostId == postId);
                     return
                     new PostDetails
                     {
@@ -65,7 +67,7 @@ namespace RacingHub.Services
                         PostName= entity.PostName,
                         PostBody = entity.PostBody,
                         CreatedUtc = entity.CreatedUtc,
-
+                        RaceName = entity.Race.RaceName,
                     };
                 }
             }
@@ -79,6 +81,7 @@ namespace RacingHub.Services
                         .Single(e => e.PostId == model.PostId && e.OwnerId == _userId);
                     entity.PostName = model.PostName;
                     entity.PostBody = model.PostBody;
+                    entity.RaceId = model.RaceId;
                     entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                     return ctx.SaveChanges() == 1;

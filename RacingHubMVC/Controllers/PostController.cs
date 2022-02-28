@@ -17,7 +17,7 @@ namespace RacingHubMVC.Controllers
             //This Method will display races for a specific user.
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new PostService(userId);
-            var model = service.GetTeams();
+            var model = service.GetPosts();
 
             return View(model);
 

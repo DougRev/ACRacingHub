@@ -15,5 +15,6 @@ namespace RacingHub.Models.Post
         public string PostName { get; set; }
         [Display(Name = "Body")]
         public string PostBody { get; set; }
+        public int? RaceId { get; set; }
     }
 }

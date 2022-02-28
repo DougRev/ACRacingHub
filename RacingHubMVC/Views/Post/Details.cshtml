@@ -50,9 +50,17 @@
             @Html.DisplayFor(model => model.CreatedUtc)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.RaceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaceName)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

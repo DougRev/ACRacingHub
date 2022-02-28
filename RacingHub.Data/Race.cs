@@ -19,6 +19,7 @@ namespace RacingHub.Data
         //public DateTime RaceDate { get; set; }
         [Required]
         public int DriverLimit { get; set; }
+        //public List<ApplicationUser> Drivers { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
         

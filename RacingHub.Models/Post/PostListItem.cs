@@ -15,5 +15,6 @@ namespace RacingHub.Models.Post
         public string PostName { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        public string RaceName { get; set; }
     }
 }
