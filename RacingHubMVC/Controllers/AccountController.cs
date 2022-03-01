@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using RacingHub.Data;
@@ -60,6 +61,15 @@ namespace RacingHubMVC.Controllers
             var userService = new UserService();
             var users = userService.GetAllUsers();
 
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Roles.Add(new IdentityRole()
+                {
+                    Name = "admin"
+                });
+                ctx.SaveChanges();
+            }
+
             var userList= users.Select(u =>
             {
                 return new UserListItem()
@@ -82,18 +92,21 @@ namespace RacingHubMVC.Controllers
                 UserName = User.UserName,
                 Email = User.Email,
                 UserId = User.Id,
+                
             };
             return View(userDetailModel);
         }
 
         public ActionResult Edit(string userId)
         {
-            ApplicationUser User = UserManager.FindById(userId);
+            ApplicationUser user = UserManager.FindById(userId);
+            var userRoles = UserManager.GetRoles(userId);
             var userEditModel = new UserEdit()
             {
-                UserName = User.UserName,
-                Email = User.Email,
-                UserId = User.Id
+                UserName = user.UserName,
+                Email = user.Email,
+                UserId = user.Id,
+                IsAdmin = userRoles.Any(r => r == "admin")
             };
             return View(userEditModel);
         }
@@ -102,6 +115,14 @@ namespace RacingHubMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(string userId, UserEdit model)
         {
+            var currentUserId = User.Identity.GetUserId();
+            var currentRoles = UserManager.GetRoles(currentUserId);
+
+            if (!currentRoles.Contains("admin"))
+            {
+                ModelState.AddModelError("", "You do not have permission to do this.");
+                return View(model);
+            }
             if (!ModelState.IsValid) return View(model);
 
             if (model.UserId != userId)
@@ -110,10 +131,15 @@ namespace RacingHubMVC.Controllers
                 return View(model);
             }
 
-            ApplicationUser User = UserManager.FindById(userId);
-            User.UserName = model.UserName;
+            ApplicationUser user = UserManager.FindById(userId);
+            user.UserName = model.UserName;
 
-            if (UserManager.Update(User).Succeeded)
+            if (model.IsAdmin)
+            {
+                UserManager.AddToRole(userId, "admin");
+            }
+
+            if (UserManager.Update(user).Succeeded)
             {
                 return RedirectToAction("Index");
             }
