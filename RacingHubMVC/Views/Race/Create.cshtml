@@ -1,4 +1,5 @@
 ﻿@model RacingHub.Models.Race.RaceCreate
+@using RacingHub.Data
 
 @{
     ViewBag.Title = "Create";
@@ -18,6 +19,17 @@
     @Html.HiddenFor(model => model.RaceId)
     @Html.HiddenFor(model => model.OwnerId)
 
+    <div class="form-group">
+        @Html.LabelFor(model => model.RaceType, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(
+                model => model.RaceType, 
+                   new SelectList(Enum.GetValues(typeof(RaceType))),
+                    "Race Type", 
+                new { htmlAttributes = new { @class = "form-control" } });
+            @Html.ValidationMessageFor(model => model.RaceType, "", new { @class = "text-danger" })
+        </div>
+    </div>
     <div class="form-group">
         @Html.LabelFor(model => model.RaceName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">

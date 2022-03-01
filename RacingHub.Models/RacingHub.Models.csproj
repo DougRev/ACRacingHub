@@ -79,6 +79,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RacingHub.Data\RacingHub.Data.csproj">
+      <Project>{A30814FB-707F-4F28-97C3-DE59E8FD4C10}</Project>
+      <Name>RacingHub.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.RaceId)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.RaceType)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.RaceName)
         </th>
         <th>
@@ -27,25 +30,28 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RaceId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RaceName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RaceDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DriverLimit)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.RaceId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.RaceId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.RaceId })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.RaceId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RaceType)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RaceName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RaceDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DriverLimit)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.RaceId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.RaceId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.RaceId })
+    </td>
+</tr>
 }
 
 </table>

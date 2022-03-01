@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RacingHub.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace RacingHub.Models.Race
     {
         [Display(Name = "ID")]
         public int RaceId { get; set; }
+        public RaceType RaceType { get; set; }
+
         [Display(Name = "Title")]
         public string RaceName { get; set;}
         [Display(Name = "Information")]
