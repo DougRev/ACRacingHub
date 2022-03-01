@@ -61,14 +61,14 @@ namespace RacingHubMVC.Controllers
             var userService = new UserService();
             var users = userService.GetAllUsers();
 
-            using (var ctx = new ApplicationDbContext())
-            {
-                ctx.Roles.Add(new IdentityRole()
-                {
-                    Name = "admin"
-                });
-                ctx.SaveChanges();
-            }
+            //using (var ctx = new ApplicationDbContext())
+            //{
+            //    ctx.Roles.Add(new IdentityRole()
+            //    {
+            //        Name = "admin"
+            //    });
+            //    ctx.SaveChanges();
+            //}
 
             var userList= users.Select(u =>
             {
@@ -118,6 +118,9 @@ namespace RacingHubMVC.Controllers
             var currentUserId = User.Identity.GetUserId();
             var currentRoles = UserManager.GetRoles(currentUserId);
 
+            var UserRoles = UserManager.GetRoles(userId);
+            bool UserIsAdmin = UserRoles.Any(r => r == "admin");
+
             if (!currentRoles.Contains("admin"))
             {
                 ModelState.AddModelError("", "You do not have permission to do this.");
@@ -137,6 +140,16 @@ namespace RacingHubMVC.Controllers
             if (model.IsAdmin)
             {
                 UserManager.AddToRole(userId, "admin");
+            }
+
+            if (UserIsAdmin && !model.IsAdmin)
+            {
+                if(userId == currentUserId)
+                {
+                    ModelState.AddModelError("", "You are not allowed to remove yourself from the Admin role.");
+                    return View(model);
+                }
+                UserManager.RemoveFromRole(userId,"admin");
             }
 
             if (UserManager.Update(user).Succeeded)

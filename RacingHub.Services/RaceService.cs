@@ -65,6 +65,7 @@ namespace RacingHub.Services
                     RaceId = entity.RaceId,
                     RaceDescription = entity.RaceDescription,
                     RaceName = entity.RaceName,
+                    DriverLimit = entity.DriverLimit,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc
                 };
