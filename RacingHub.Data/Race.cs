@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RacingHub.Data
 {
-    public enum RaceType { Sprint,  Drag, Distance }
+    public enum CarType { Formual1,  GT, Nascar, IndyCar, F2 }
     public class Race
     {
         [Key]
@@ -20,7 +20,7 @@ namespace RacingHub.Data
         public DateTime RaceDate { get; set; }
         [Required]
         public int DriverLimit { get; set; }
-        public RaceType RaceType { get; set; }
+        public CarType CarType { get; set; }
         //public List<ApplicationUser> Drivers { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }

@@ -12,7 +12,7 @@ namespace RacingHub.Models.Race
     {
         [Display(Name = "ID")]
         public int RaceId { get; set; }
-        public RaceType RaceType { get; set; }
+        public CarType CarType { get; set; }
 
         [Display(Name = "Title")]
         public string RaceName { get; set;}

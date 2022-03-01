@@ -55,7 +55,7 @@ namespace RacingHubMVC.Controllers
                 _userManager = value;
             }
         }
-
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             var userService = new UserService();
@@ -64,8 +64,8 @@ namespace RacingHubMVC.Controllers
             //using (var ctx = new ApplicationDbContext())
             //{
             //    ctx.Roles.Add(new IdentityRole()
-            //    {
-            //        Name = "admin"
+            //   {
+            //       Name = "admin"
             //    });
             //    ctx.SaveChanges();
             //}
@@ -92,6 +92,7 @@ namespace RacingHubMVC.Controllers
                 UserName = User.UserName,
                 Email = User.Email,
                 UserId = User.Id,
+                IsAdmin = UserManager.GetRoles(userId).Contains("admin")
                 
             };
             return View(userDetailModel);
@@ -121,11 +122,6 @@ namespace RacingHubMVC.Controllers
             var UserRoles = UserManager.GetRoles(userId);
             bool UserIsAdmin = UserRoles.Any(r => r == "admin");
 
-            if (!currentRoles.Contains("admin"))
-            {
-                ModelState.AddModelError("", "You do not have permission to do this.");
-                return View(model);
-            }
             if (!ModelState.IsValid) return View(model);
 
             if (model.UserId != userId)
@@ -133,7 +129,6 @@ namespace RacingHubMVC.Controllers
                 ModelState.AddModelError("", "Id, Mismatch");
                 return View(model);
             }
-
             ApplicationUser user = UserManager.FindById(userId);
             user.UserName = model.UserName;
 
@@ -141,7 +136,12 @@ namespace RacingHubMVC.Controllers
             {
                 UserManager.AddToRole(userId, "admin");
             }
-
+            if (!currentRoles.Contains("admin"))
+            {
+                ModelState.AddModelError("", "You do not have permission to do this.");
+                return View(model);
+            }
+          
             if (UserIsAdmin && !model.IsAdmin)
             {
                 if(userId == currentUserId)

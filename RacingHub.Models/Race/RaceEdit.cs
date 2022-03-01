@@ -11,7 +11,8 @@ namespace RacingHub.Models.Race
     public class RaceEdit
     {
         public int RaceId { get; set; }
-        public RaceType RaceType { get; set; }
+        public CarType CarType { get; set; }
+
 
         [Display(Name = "Title")]
         public string RaceName { get; set; }

@@ -69,7 +69,9 @@ namespace RacingHubMVC.Controllers
             var model = new RaceEdit
             {
                 RaceId = detail.RaceId,
+                CarType = detail.CarType,
                 RaceName = detail.RaceName,
+                RaceDate = detail.RaceDate,
                 RaceDescription = detail.RaceDescription,
                 DriverLimit = detail.DriverLimit,
             

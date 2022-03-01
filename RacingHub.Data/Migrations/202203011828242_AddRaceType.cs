@@ -1,0 +1,18 @@
+﻿namespace RacingHub.Data.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class AddRaceType : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Race", "RaceType", c => c.Int(nullable: false));
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.Race", "RaceType");
+        }
+    }
+}

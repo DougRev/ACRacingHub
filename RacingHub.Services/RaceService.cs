@@ -24,6 +24,7 @@ namespace RacingHub.Services
                 RaceId = model.RaceId,
                 OwnerId = _userId,
                 RaceName = model.RaceName,
+                RaceDate = model.RaceDate,
                 RaceDescription = model.RaceDescription,
                 DriverLimit = model.DriverLimit,
                 CreatedUtc = DateTime.UtcNow,
