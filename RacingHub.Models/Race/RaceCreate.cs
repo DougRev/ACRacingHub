@@ -18,6 +18,6 @@ namespace RacingHub.Models.Race
         public string RaceDescription { get; set; }
         [Display(Name = "Driver Limit")]
         public int DriverLimit { get; set; }
-        //public DateTime RaceDate { get; set; }
+        public DateTime RaceDate { get; set; }
     }
 }

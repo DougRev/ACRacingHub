@@ -71,6 +71,9 @@
     <Compile Include="Team\TeamDetails.cs" />
     <Compile Include="Team\TeamEdit.cs" />
     <Compile Include="Team\TeamListItem.cs" />
+    <Compile Include="User\UserDetails.cs" />
+    <Compile Include="User\UserEdit.cs" />
+    <Compile Include="User\UserListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using RacingHub.Data;
+using RacingHub.Models.User;
+using RacingHub.Services;
 using RacingHubMVC.Models;
 
 namespace RacingHubMVC.Controllers
@@ -52,6 +54,74 @@ namespace RacingHubMVC.Controllers
                 _userManager = value;
             }
         }
+
+        public ActionResult Index()
+        {
+            var userService = new UserService();
+            var users = userService.GetAllUsers();
+
+            var userList= users.Select(u =>
+            {
+                return new UserListItem()
+                {
+                    UserId = u.Id,
+                    UserName = u.UserName,
+                    Email = u.Email
+                };
+            }
+            ).ToList();
+            return View(userList);
+
+        }
+
+        public ActionResult Details(string userId)
+        {
+            ApplicationUser User = UserManager.FindById(userId);
+            var userDetailModel = new UserDetails()
+            {
+                UserName = User.UserName,
+                Email = User.Email,
+                UserId = User.Id,
+            };
+            return View(userDetailModel);
+        }
+
+        public ActionResult Edit(string userId)
+        {
+            ApplicationUser User = UserManager.FindById(userId);
+            var userEditModel = new UserEdit()
+            {
+                UserName = User.UserName,
+                Email = User.Email,
+                UserId = User.Id
+            };
+            return View(userEditModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(string userId, UserEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.UserId != userId)
+            {
+                ModelState.AddModelError("", "Id, Mismatch");
+                return View(model);
+            }
+
+            ApplicationUser User = UserManager.FindById(userId);
+            User.UserName = model.UserName;
+
+            if (UserManager.Update(User).Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "User could not be updated.");
+            return View(model);
+        }
+
 
         //
         // GET: /Account/Login

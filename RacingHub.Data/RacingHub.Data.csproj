@@ -79,6 +79,10 @@
     <Compile Include="Migrations\202202280242080_AddRaceIdToPost.designer.cs">
       <DependentUpon>202202280242080_AddRaceIdToPost.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202280409252_AddRaceDate.cs" />
+    <Compile Include="Migrations\202202280409252_AddRaceDate.designer.cs">
+      <DependentUpon>202202280409252_AddRaceDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202280242080_AddRaceIdToPost.resx">
       <DependentUpon>202202280242080_AddRaceIdToPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202280409252_AddRaceDate.resx">
+      <DependentUpon>202202280409252_AddRaceDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

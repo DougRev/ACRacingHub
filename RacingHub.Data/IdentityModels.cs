@@ -32,15 +32,14 @@ namespace RacingHub.Data
         {
             return new ApplicationDbContext();
         }
-
-        //public DbSet<Post> Posts { get; set; }
         public DbSet<Race> Races { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Post> Posts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-           // modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+            //This 1 line allows me to use a DateTime for future reference
+            modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();

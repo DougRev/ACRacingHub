@@ -44,6 +44,7 @@ namespace RacingHub.Services
                     {
                         RaceId = e.RaceId,
                         RaceName = e.RaceName,
+                        RaceDate = e.RaceDate,
                         DriverLimit = e.DriverLimit,
                     });
                 return query.ToArray();
@@ -80,6 +81,8 @@ namespace RacingHub.Services
                 entity.RaceName = model.RaceName;
                 entity.RaceDescription = model.RaceDescription;
                 entity.DriverLimit = model.DriverLimit;
+                entity.RaceId = model.RaceId;
+                entity.RaceDate = model.RaceDate;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
