@@ -28,6 +28,7 @@ namespace RacingHub.Services
                 Track = model.Track,
                 RaceDescription = model.RaceDescription,
                 DriverLimit = model.DriverLimit,
+                CarType = model.CarType,
                 CreatedUtc = DateTime.UtcNow,
             };
             using (var ctx = new ApplicationDbContext())

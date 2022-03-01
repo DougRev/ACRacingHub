@@ -55,7 +55,7 @@ namespace RacingHubMVC.Controllers
                 _userManager = value;
             }
         }
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             var userService = new UserService();
@@ -64,7 +64,7 @@ namespace RacingHubMVC.Controllers
             //using (var ctx = new ApplicationDbContext())
             //{
             //    ctx.Roles.Add(new IdentityRole()
-            //   {
+            //  {
             //       Name = "admin"
             //    });
             //    ctx.SaveChanges();
