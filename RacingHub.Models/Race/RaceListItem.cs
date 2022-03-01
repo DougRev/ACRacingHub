@@ -19,8 +19,10 @@ namespace RacingHub.Models.Race
 
         [Display(Name = "Date")]
         public DateTime RaceDate { get; set; }
+        public string Track { get; set; }
 
         [Display(Name = "Driver Limit")]
+        [Range(2, 20, ErrorMessage = "Drivers must be between 2 and 20")]
         public int DriverLimit { get; set; }
     }
 }

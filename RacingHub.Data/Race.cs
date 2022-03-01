@@ -17,8 +17,11 @@ namespace RacingHub.Data
         [Required]
         public string RaceName { get; set;}
         public string RaceDescription { get; set;}
+        [Required]
+        public string Track { get ; set;}
         public DateTime RaceDate { get; set; }
         [Required]
+        [Range(2,20, ErrorMessage ="Drivers must be between 2 and 20")]   
         public int DriverLimit { get; set; }
         public CarType CarType { get; set; }
         //public List<ApplicationUser> Drivers { get; set; }

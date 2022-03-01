@@ -25,6 +25,7 @@ namespace RacingHub.Services
                 OwnerId = _userId,
                 RaceName = model.RaceName,
                 RaceDate = model.RaceDate,
+                Track = model.Track,
                 RaceDescription = model.RaceDescription,
                 DriverLimit = model.DriverLimit,
                 CreatedUtc = DateTime.UtcNow,
@@ -47,6 +48,7 @@ namespace RacingHub.Services
                         RaceName = e.RaceName,
                         RaceDate = e.RaceDate,
                         DriverLimit = e.DriverLimit,
+                        Track = e.Track,
                     });
                 return query.ToArray();
             }
@@ -67,6 +69,7 @@ namespace RacingHub.Services
                     RaceDescription = entity.RaceDescription,
                     RaceName = entity.RaceName,
                     DriverLimit = entity.DriverLimit,
+                    Track = entity.Track,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc
                 };
@@ -82,6 +85,7 @@ namespace RacingHub.Services
                     .Single(e => e.RaceId == model.RaceId && e.OwnerId == _userId);
                 entity.RaceName = model.RaceName;
                 entity.RaceDescription = model.RaceDescription;
+                entity.Track = model.Track;
                 entity.DriverLimit = model.DriverLimit;
                 entity.RaceId = model.RaceId;
                 entity.RaceDate = model.RaceDate;

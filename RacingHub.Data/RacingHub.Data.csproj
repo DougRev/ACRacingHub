@@ -87,6 +87,14 @@
     <Compile Include="Migrations\202203011828242_AddRaceType.designer.cs">
       <DependentUpon>202203011828242_AddRaceType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203012018324_RaceTypeToCarType.cs" />
+    <Compile Include="Migrations\202203012018324_RaceTypeToCarType.designer.cs">
+      <DependentUpon>202203012018324_RaceTypeToCarType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203012038176_AddTrackToRace.cs" />
+    <Compile Include="Migrations\202203012038176_AddTrackToRace.designer.cs">
+      <DependentUpon>202203012038176_AddTrackToRace.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203011828242_AddRaceType.resx">
       <DependentUpon>202203011828242_AddRaceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203012018324_RaceTypeToCarType.resx">
+      <DependentUpon>202203012018324_RaceTypeToCarType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203012038176_AddTrackToRace.resx">
+      <DependentUpon>202203012038176_AddTrackToRace.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
