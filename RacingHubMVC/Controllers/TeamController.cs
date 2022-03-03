@@ -84,11 +84,15 @@ namespace RacingHubMVC.Controllers
         public ActionResult Edit(int id, TeamEdit model)
         {
             if (!ModelState.IsValid) return View(model);
-
+            
             if (model.TeamId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
+            }
+
+            {
+                ModelState.AddModelError("", "You do not have permission to do this");
             }
 
             var service = CreateTeamService();

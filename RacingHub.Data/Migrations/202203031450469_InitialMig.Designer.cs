@@ -7,13 +7,13 @@ namespace RacingHub.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddTrackToRace : IMigrationMetadata
+    public sealed partial class InitialMig : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddTrackToRace));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMig));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203012038176_AddTrackToRace"; }
+            get { return "202203031450469_InitialMig"; }
         }
         
         string IMigrationMetadata.Source

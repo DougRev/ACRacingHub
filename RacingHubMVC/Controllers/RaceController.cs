@@ -85,7 +85,11 @@ namespace RacingHubMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, RaceEdit model)
         {
+            var currentUserId = User.Identity.GetUserId();
+            var ownerId = model.OwnerId;
+
             if (!ModelState.IsValid) return View(model);
+
 
             if (model.RaceId != id)
             {

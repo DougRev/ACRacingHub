@@ -11,6 +11,7 @@ namespace RacingHub.Models.Race
     public class RaceEdit
     {
         public int RaceId { get; set; }
+        public Guid OwnerId { get; set; }
         public CarType CarType { get; set; }
 
 

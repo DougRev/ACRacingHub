@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "RacingHub.Data.ApplicationDbContext";
         }
 
         protected override void Seed(RacingHub.Data.ApplicationDbContext context)

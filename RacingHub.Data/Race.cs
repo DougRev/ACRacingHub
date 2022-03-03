@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace RacingHub.Data
 {
     public enum CarType { Formual1,  GT, Nascar, IndyCar, F2 }
+
     public class Race
     {
         [Key]
