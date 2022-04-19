@@ -16,7 +16,7 @@ namespace RacingHubMVC.Controllers
         {
             //This Method will display races for a specific user.
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new PostService(userId);
+            var service = new PostService();
             var model = service.GetPosts();
 
             return View(model);
@@ -26,7 +26,7 @@ namespace RacingHubMVC.Controllers
         private PostService CreatePostService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var postService = new PostService(userId);
+            var postService = new PostService();
             return postService;
         }
 
@@ -44,7 +44,7 @@ namespace RacingHubMVC.Controllers
                 return View(model);
             }
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new PostService(userId);
+            var service = new PostService();
             service.CreatePost(model);
 
             return RedirectToAction("Index");
