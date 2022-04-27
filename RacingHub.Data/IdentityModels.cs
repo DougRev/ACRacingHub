@@ -39,7 +39,7 @@ namespace RacingHub.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //This 1 line allows me to use a DateTime for future reference
-            modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+           // modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();

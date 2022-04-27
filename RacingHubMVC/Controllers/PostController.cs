@@ -15,7 +15,7 @@ namespace RacingHubMVC.Controllers
         public ActionResult Index()
         {
             //This Method will display races for a specific user.
-            var userId = Guid.Parse(User.Identity.GetUserId());
+            //var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new PostService();
             var model = service.GetPosts();
 

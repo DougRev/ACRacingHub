@@ -13,7 +13,7 @@ namespace RacingHub.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202203031450469_InitialMig"; }
+            get { return "202204272257354_InitialMig"; }
         }
         
         string IMigrationMetadata.Source
